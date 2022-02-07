@@ -4,7 +4,10 @@
 
 Event *CreateEvent(char *name)
 {
-    Event *event = NULL;
+    Event *event = malloc(sizeof(Event));
+    sscanf(name,"%s",event->eventName);
+    //siguiente evento NULL
+
     return event;
 }
 
