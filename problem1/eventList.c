@@ -26,7 +26,9 @@ Event *SearchEvent(EventList *this, char *name)
 
 void AddEvent(EventList *this, Event *event)
 {
-
+    if(this->isEmpty !=NULL){
+        this -> last->next=event; 
+    }
 }
 
 void RemoveEvent(EventList *this, char *name)
