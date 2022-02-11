@@ -15,21 +15,25 @@ EventList *CreateEventList(void)
 void DestroyEventList(EventList *this)
 {
 
-
     free(this);
 }
 
 Event *SearchEvent(EventList *this, char *name)
 {
 
-
     return NULL;
 }
 
 void AddEvent(EventList *this, Event *event)
 {
-    if(this->isEmpty !=NULL){
-        this -> last->next=event; 
+    if(this->isEmpty !='0'){
+        this -> last-> next = event; 
+        this -> last = event;
+    }
+    else{
+        this -> head = event;
+        this -> last = event;
+        this -> isEmpty = 1;
     }
 }
 
