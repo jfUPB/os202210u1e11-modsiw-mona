@@ -3,7 +3,7 @@
     {
       "name": "Compilación",
       "setup": "",
-      "run": "cd ./problem1 && make",
+      "run": "cd ./problem1 && make clean && make",
       "input": "",
       "output": "",
       "comparison": "included",
