@@ -26,23 +26,31 @@ Event *SearchEvent(EventList *this, char *name)
 
 void AddEvent(EventList *this, Event *event)
 {
+    Event *r = this->head;
     if(this->isEmpty !='0'){
-        this -> last-> next = event; 
-        this -> last = event;
+        while (r != NULL)
+        {
+            if (*(r->eventName + 2) == *(event->eventName + 2) && *(r->eventName + 3) == *(event->eventName + 3))
+                return;
+
+            r = r->next;
+        }
+        this->last->next = event;
+        this->last = event;
     }
-    else{
-        this -> head = event;
-        this -> last = event;
-        this -> isEmpty = 1;
+    else
+    {
+        this->head = event;
+        this->last = event;
+        this->isEmpty = 1;
     }
-}
 
 void RemoveEvent(EventList *this, char *name)
 {
     Event *temporal = this -> head;
     if (this -> isEmpty!=0)
     {
-        while(temporal! = NULL ){
+        while(temporal!= NULL){
         if( *(this -> head -> eventName+2) == *(name+2)){
             this -> head = this -> head -> next;
             break;
@@ -53,13 +61,13 @@ void RemoveEvent(EventList *this, char *name)
         }
         temporal=temporal -> next;
     }
-    if(this -> head = NULL){
+    if(this -> head == NULL){
         this -> isEmpty=0;
     }
     } else 
-{
-    return;
-}
+        {
+            return;
+    }
         
 }
 
