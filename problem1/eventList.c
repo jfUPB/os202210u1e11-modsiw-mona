@@ -20,24 +20,40 @@ void DestroyEventList(EventList *this)
 
 Event *SearchEvent(EventList *this, char *name)
 {
+    Event *a = this->head;
+    if (this->isEmpty == 0)
+    {
+        return NULL;
+    }
+    else
+    {
+        while (a != NULL)
+        {
+            if (*(a->eventName + 2) == *(name + 2) && *(a->eventName + 3) == *(name + 3))
+            {
+                return a;
+            }
+
+            a = a->next;
+        }
+    }
 
     return NULL;
 }
 
 void AddEvent(EventList *this, Event *event)
 {
-    Event *temp = this->head;
+    Event *t = this -> head;
 
-    if(this->isEmpty !='0'){
+    if(this -> isEmpty !=0){
 
-        while (temp != NULL)
+        while (t != NULL)
         {
-            if (*(temp->eventName + 2) == *(event->eventName + 2) && *(temp->eventName + 3) == *(event->eventName + 3))
+            if (*(t -> eventName + 2) == *(event -> eventName +2) && *(t -> eventName +3) == *(event -> eventName +3))
             {   
                 return;
             }
-        
-            temp = temp->next;
+            t = t -> next;
         }
         this -> last -> next = event;
         this -> last = event;
@@ -77,6 +93,16 @@ void RemoveEvent(EventList *this, char *name)
 
 void ListEvents(EventList *this)
 {
-    // imprime esto si la lista está vacía
-    printf("empty\n");
+    Event *a = this->head;
+
+        if (this->isEmpty == 0)
+            printf("empty\n");
+        else
+        {
+            while (a != NULL)
+            {
+                printf("%s\n", a->eventName); // BORRAR OJO
+                a = a->next;
+            }
+        }
 }
