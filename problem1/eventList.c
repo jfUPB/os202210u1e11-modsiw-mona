@@ -69,26 +69,42 @@ void AddEvent(EventList *this, Event *event)
 void RemoveEvent(EventList *this, char *name)
 {
     Event *temporal = this -> head;
-    if (this -> isEmpty!=0){
-        while(temporal!= NULL){
-            if( *(this -> head -> eventName+2) == *(name+2)){
-                this -> head = this -> head -> next;
-                break;
-            }
-            else if ( *(temporal -> next -> eventName +2) == *(name+2)){
-                temporal -> next = temporal -> next -> next;
-                break;
-            }
-            temporal=temporal -> next;
-        }
-        if(this -> head == NULL){
-            this -> isEmpty=0;
-        }
-    } 
-    else {
+    Event *temp2 = SearchEvent(this,name);
+    if(temp2==NULL){
         return;
     }
-        
+    
+    if (this -> isEmpty != 0)
+    {   
+        if (this -> isEmpty != 0)
+        {
+            do
+            {
+                if (*(this -> head -> eventName + 2) == *(name + 2))
+                {
+                    DestroyEvent(this -> head);
+                    this -> head = this -> head -> next;
+                    break;
+                }
+                else if (*(temporal -> next -> eventName+2) == *(name+2))
+                {
+                    DestroyEvent(temporal -> next);
+                    temporal -> next = temporal -> next -> next;
+                    break;
+                }
+                temporal = temporal -> next;
+            } while (temporal != NULL);
+
+            if (this -> head == NULL)
+            {
+                this -> isEmpty = 0;
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
 }
 
 void ListEvents(EventList *this)
