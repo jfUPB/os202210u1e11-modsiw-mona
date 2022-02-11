@@ -53,7 +53,7 @@ void AddEvent(EventList *this, Event *event)
             {   
                 return;
             }
-            t = t -> next;
+              t = t->next;
         }
         this -> last -> next = event;
         this -> last = event;
