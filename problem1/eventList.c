@@ -6,7 +6,9 @@
 EventList *CreateEventList(void)
 {
     EventList *eventList = malloc(sizeof(EventList));
-
+    eventList -> head = NULL;
+    eventList -> last = NULL;
+    eventList -> isEmpty = NULL;
     return eventList;
 }
 
