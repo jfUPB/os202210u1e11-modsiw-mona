@@ -44,29 +44,29 @@ void AddEvent(EventList *this, Event *event)
         this->last = event;
         this->isEmpty = 1;
     }
+}
 
 void RemoveEvent(EventList *this, char *name)
 {
     Event *temporal = this -> head;
-    if (this -> isEmpty!=0)
-    {
+    if (this -> isEmpty!=0){
         while(temporal!= NULL){
-        if( *(this -> head -> eventName+2) == *(name+2)){
-            this -> head = this -> head -> next;
-            break;
+            if( *(this -> head -> eventName+2) == *(name+2)){
+                this -> head = this -> head -> next;
+                break;
+            }
+            else if ( *(temporal -> next -> eventName +2) == *(name+2)){
+                temporal -> next = temporal -> next -> next;
+                break;
+            }
+            temporal=temporal -> next;
         }
-        else if ( *(temporal -> next -> eventName +2) == *(name+2)){
-            temporal -> next = temporal -> next -> next;
-            break;
+        if(this -> head == NULL){
+            this -> isEmpty=0;
         }
-        temporal=temporal -> next;
-    }
-    if(this -> head == NULL){
-        this -> isEmpty=0;
-    }
-    } else 
-        {
-            return;
+    } 
+    else {
+        return;
     }
         
 }
