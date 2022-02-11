@@ -93,16 +93,16 @@ void RemoveEvent(EventList *this, char *name)
 
 void ListEvents(EventList *this)
 {
-    Event *a = this->head;
+    Event *e = this -> head;
 
-        if (this->isEmpty == 0)
+        if (this -> isEmpty == 0)
             printf("empty\n");
         else
         {
-            while (a != NULL)
+            while (e!= NULL)
             {
-                printf("%s\n", a->eventName); // BORRAR OJO
-                a = a->next;
+                printf("%s\n", e -> eventName); 
+                e = e -> next;
             }
         }
 }
