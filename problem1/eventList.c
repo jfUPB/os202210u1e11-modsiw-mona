@@ -20,21 +20,21 @@ void DestroyEventList(EventList *this)
 
 Event *SearchEvent(EventList *this, char *name)
 {
-    Event *a = this->head;
-    if (this->isEmpty == 0)
+    Event *evento = this->head;
+    if (this -> isEmpty == 0)
     {
         return NULL;
     }
     else
     {
-        while (a != NULL)
+        while (evento != NULL)
         {
-            if (*(a->eventName + 2) == *(name + 2) && *(a->eventName + 3) == *(name + 3))
+            if (*(evento -> eventName + 2) == *(name + 2) && *(evento -> eventName + 3) == *(name + 3))
             {
-                return a;
+                return evento;
             }
 
-            a = a->next;
+            evento = evento -> next;
         }
     }
 
