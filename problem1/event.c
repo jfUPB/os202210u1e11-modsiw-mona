@@ -18,7 +18,7 @@ Event *CreateEvent(char *name)
         sscanf(name, "%s",event ->eventName);
     }
 
-    event ->next=NULL;
+    event -> next=NULL;
     return event;
 }
 
