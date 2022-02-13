@@ -9,8 +9,9 @@ Event *CreateEvent(char *name)
     char temp[sizeof(name)];
     if(strlen(name) > 15){
         char var[15];
-        for (int i = 0; i < 15; i++){
-            var[i] = name[i];
+        for (int i = 0; i < 15; i++)
+        {
+            var [i] = name [i] ;
         }     
         sscanf(var, "%s", event -> eventName);
     }
