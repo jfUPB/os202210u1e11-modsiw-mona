@@ -5,11 +5,19 @@
 
 Event *CreateEvent(char *name)
 {
-    name[15]=0;
     Event *event = malloc(sizeof(Event));
-    sscanf(name, "%s", event -> eventName);
-    
-    event -> next=NULL;
+    char aux[sizeof(name)];
+    if(strlen(name) > 15){
+        char fixed[15];
+        for (int i = 0; i < 15; i++){
+            fixed[i] = name[i];
+        }     
+        sscanf(fixed, "%s", event->eventName);
+    }
+    else{
+        sscanf(name, "%s", event->eventName);    
+    }  
+    event->next = NULL;
     return event;
 }
 
